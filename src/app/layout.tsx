@@ -6,11 +6,14 @@ const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
+  display: "swap", // Use `swap` for fallback during loading
 });
+
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+  display: "swap", // Use `swap` for fallback during loading
 });
 
 export const metadata: Metadata = {
@@ -19,17 +22,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+      <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          cz-shortcut-listen="true" >
+      {children}
       </body>
-    </html>
+      </html>
   );
 }
